@@ -1,0 +1,398 @@
+*
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  color: grey;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/*80vh so that it is responsive*/
+/*this is essentially the body*/
+.container {
+  display: grid;
+  grid-auto-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end] ) [center-end] minmax(6rem, 1fr) [full-end];
+  & > * {
+    padding: 40px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*sidebar*/
+.sidebar {
+  background-color: grey;
+  grid-column: sidebar-start /sidebar-end;
+  grid-row: 1/ -1;
+}
+/*header*/
+.header {
+  background-color: grey;
+  grid-column: full-start / col-end 6;
+}
+
+
+/*realtors*/
+.realtors {
+  background-color: grey;
+  grid-column: col-start 7 / full-end;
+}
+
+/**********************************features ******************
+***************************************************************/
+.features {
+  grid-column: center-start / center-end;
+
+  margin: 15rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 6rem;
+
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 2.5rem;
+  align-items: start;
+
+  &__icon {
+    fill: grey;
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem);
+  }
+  &__text {
+    font-size: 1.7rem;
+  }
+}
+
+.heading-1 {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.heading-2 {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+.heading-3 {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+.heading-4 {
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  &--light{ color: grey; }
+  &--light{ color: black; }
+}
+
+
+/***************************************************story*****************
+**************************************************************************
+STORY and Picturea are part of the right side of the story section
+as well as img--1 and img--2
+//the z index makes it overflow as well as the widht
+*/
+.story {
+  &__pictures {
+        background-color: red;
+        grid-column: full-start / col-end 4;
+        background-image: -webkit-linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)),
+       url(../img/back.jpg);
+
+        display: grid;
+        grid-auto-rows: repeat(6, 1fr);
+        grid-auto-columns: repeat(6, 1fr);
+        align-items: center;
+      }
+
+  &__img--1 {
+    width: 100%;
+    grid-row: 2 / 6;
+    grid-column: 2 / 6;
+    box-shadow: 0 2rem 5rem rgba(#000, .1)
+  }
+
+  &__img--2 {
+    width: 115%;
+    grid-row: 4 /6;
+    grid-column: 4 / 7;
+    z-index: 20;
+    box-shadow: 0 2rem 5rem rgba(#000, .2)
+  }
+
+  &__content {
+    background-color: grey;
+    grid-column: col-start 5 / full-end;
+    padding: 6rem 8vw;
+
+
+    /* this is how you center the items with flex-box
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    */
+
+    display: grid;
+    align-content: center;
+    justify-items: start;
+
+    &__text {
+      font-size: 1.5rem;
+      font-family: italic;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .heading-2 {
+    font-size: 4rem;
+    font-family: italic;
+    line-height: 1;
+
+    &--light{ color: grey; }
+    &--light{ color: black; }
+  }
+
+  .heading-3 {
+    font-size: 1.6rem;
+    color: grey;
+    text-transform: uppercase;
+  }
+
+  .btn {
+    background: grey;
+    color: white;
+    border-radius: none;
+    border: none;
+    font-family: serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 1.8rem 3rem;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+      background: red;
+    }
+  }
+}
+
+.mb-sm { margin-bottom: 2rem;}
+.mb-md { margin-bottom: 3rem;}
+.mb-lg { margin-bottom: 4rem;}
+.mb-hg { margin-bottom: 8rem;}
+
+
+/************************ Homes *****************************************************
+*************************************************************
+*************************************************************/
+.homes {
+  background-color: blue;
+  grid-column: center-start / center-end;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 70px;
+}
+
+.home {
+  background: grey;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr)
+  &__img {
+    width: 100%;
+    grid-row: 1/ 2;
+    grid-column: 1/ -1;
+    z-index: 1;
+  }
+  &__like {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    fill: white;
+    height: 2.5rem;
+    width: 2.5rem;
+    z-index: 2;
+    justify-self: end;
+    margin: 1rem;
+  }
+  &__name {
+  /*transform: translate(50%); this will translate the Beautiful family home thing to the middle*/
+
+    grid-column: 1/ -1;
+    grid-row: 1 /2;
+    z-index: 3;
+    width: 80%;
+    justify-self: center;
+    align-self: end;
+    transform: translate(50%);
+    grid-row-gap: 25px;
+
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1.25rem;
+    background: grey;
+    color: white;
+    font-weight: 400;
+
+  }
+  &__location,
+  &__rooms {
+    margin-top: 2.5rem;
+  }
+
+  &__location,
+  &__rooms,
+  &__area,
+  &__price {
+    width: 100%;
+      font-size: 1.5rem;
+      margin-left: 2rem;
+
+      display: flex;
+      align-items: center;
+    svg {
+      fill: white;
+      height: 2rem;
+      width: 2rem;
+      margin-right: 1rem;
+    }
+    p {
+    }
+  }
+  &__btn {
+    grid-column: 1/ -1;
+  }
+
+}
+
+/* footer*/
+
+.footer {
+  background-color: grey;
+  grid-column: full-start / full-end;
+}
+
+/******************************************************gallery
+*************************************************************/
+
+.gallery {
+  background-color: grey;
+  grid-column: full-start / full-end;
+
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(7, 5vw);
+  grid-gap: 1.5rem;
+  padding: 1.5rem;
+
+  &__item{
+    &--1 {
+        grid-row: 1 / span 2;
+        grid-column: 1 / span 2;
+    }
+
+    &--2 {
+        grid-row: 1 / span 3;
+        grid-column: 3 / span 3;
+    }
+
+    &--3 {
+        grid-row: 1 / span 2;
+        grid-column: 6 / 7;
+    }
+
+    &--4 {
+        grid-row: 1 / span 2;
+        grid-column: 7 / -1;
+    }
+
+    &--5 {
+        grid-row: 3 / span 3;
+        grid-column: 1 / span 2;
+    }
+
+    &--6 {
+        grid-row: 4 / span 2;
+        grid-column: 3 / span 2;
+    }
+
+    &--7 {
+        grid-row: 4 / 5;
+        grid-column: 5 / 6;
+    }
+
+    &--8 {
+        grid-row: 3 / span 2;
+        grid-column: 6 / span 2;
+    }
+
+    &--9 {
+        grid-row: 3 / span 3;
+        grid-column: 8 / -1;
+    }
+
+    &--10 {
+        grid-row: 6 / span 2;
+        grid-column: 1 / 2;
+    }
+
+    &--11 {
+        grid-row: 6 / span 2;
+        grid-column: 2 / span 2;
+    }
+
+    &--12 {
+        grid-row: 6 / span 2;
+        grid-column: 4 / 5;
+    }
+
+    &--13 {
+        grid-row: 5 / span 3;
+        grid-column: 5 / span 3;
+    }
+
+    &--14 {
+        grid-row: 6 / span 2;
+        grid-column: 8 / -1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  & * {
+    width: 100%;
+  }
+}
