@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="item item--1">orange</div>
+  <div class="item item--2">green</div>
+  <div class="item item--3">Violet</div>
+  <div class="item item--4">Pink</div>
+  <div class="item item--5">Blue</div>
+  <div class="item item--6"></div>
+
+</div>
+
+
+
+
+<style media="screen">
+/container{
+  background: grey;
+  width: 1000px;
+  margin: 30px auto;
+
+  display: grid;
+  grid-template-rows: 150px 150px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item{
+  padding: 20px;
+  font-size: 30px;
+  font-family: Sans-serif;
+  color: white;
+  grid-row-gap: 30px;
+  grid-column-gap: 50px;
+
+  &--1 {
+    background: orange;
+  }
+  &--2 {
+    background: blue;
+  }
+  &--3 {
+    background: red;
+  }
+  &--4 {
+    background: yellow;
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+  &--5 {
+    background: brown;
+  }
+  &--6 {
+    background: pink;
+  }
+}
+
+///grid-template-rows: repeat(2, 150px); this is for two rows with 150px each
+///grid-template-rows: repeat(2,150px) 300px; so 3 columns 2 with 150px and one with 300px
+///grid-template-rows: 150px 1fr; 1 fr will expand the elemement to cover all the space
+///grid-template-rows: 50% 1fr 1fr; this is for
+///grid-row-start: 2; this will move the item to another cell
+  grid-row-end: 3;
+short-hand: 2/3;
+///grid-column: 2 / span 2; this will make it expand 2 columns
+///grid-auto-rows: 80px; this selects the grids that were made automatically by the grid
+///grid-auto-flow: row; this will place the items as columns or rows dempending on what we want
+/// only in the container we can call     align-items: center/ start/ end/ stretch; which will align the items to the center
+///justify-items: center; ///this will align items both verticaly and horizontally
+///align-self: start; this will align only onte thing to the center
+///justify-self: center; to align individual items
+///justify-content: center/ space between/ space around; this will align all items to the center
+//align-content: center; to center items
+//grid-template-columns: max-content 1fr 1fr max-content; /// this is for the writing inside the boxes to keep in one line
+  grid-template-columns: max-content 1fr 1fr min-content; min content expands the boxes in order to accomodate all the text
+///grid-template-columns: repeat(2, minmax(150px, min-content)); minmax will expand the boxes witht the text
+  grid-template-rows: minmax(200px, 300px) repeat(3, 1fr); the columns will stay between 300- 200px;
+////auto-fit/ auto-fill
+  grid-template-columns: repeat(auto-fill, 100px); this will design 10 boxes with 100px each because the width is 1000px with autofill
+                                (auto-fit, 100px); auto-fit creates 10 columns but these will collapse and wont fit the remaining space
+  for responsiveness:::
+                        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                        grid-auto-rows: 150px;
+</style>

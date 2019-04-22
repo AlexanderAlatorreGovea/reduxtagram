@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+
+  </body>
+</html>
+
+
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    background: #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .item {
+    background: color:
+  }
+
+  .i2 {
+    height: 200px;
+  }
+
+  /// row is the default
+  ///row-reverse reverses the axis in a row
+  ///column-reverse which reverses the axis
+  ///ustify-content: center, aligns all the boxes in the center but doesn't do anything to the spacing
+  ///justify-contet: space between, positions the position between all the items with equal space
+  ///justify-content: space-around; doubles space between items
+  ///justify-content: space-evenly; gives the margin evenly between the boxes
+  ///align items:  , aligns the items from top down  so from reduxtragram to README.md so if you increase the height of one it will align the other items in the center of this box
+  ///align-itmes: stretch, stretches all the items to match the size of
+  ///align-itmes: baseline, will align all text on the same line
+  ///flex-direction: column, and align-items: center will align all items to the center of the center
+
+
+  PROPERTIES USED IN ALIGN items
+
+  .i4 {
+    align-self: flex-end /// one individual item will be alignes to the end
+  }
+
+
+  //felx-grow: 1; will increase the the amount of space the item ocupies
+///flex: 1; will increase the amount of space it occupies like it does above;
+///flex-basis: 20%; will increase the amount of space to occupy 20% of the space available
+///flex-shrink: 0; with 0 the item will not be allowed to shrink
+///flex: 0 1 300px; this will give it 300px, will allow it to shrink, and will increase the amount of space copared to the other elements
+///flex-wrap: wrap; will wrap the items
+///align-content: flex-start, space-beween, stretch, ; center, will center the items but needs to be put in the container
+  
+</style>
